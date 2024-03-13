@@ -15,7 +15,8 @@ COPY ./public ./public
 RUN npm install \
     && npm install -g serve \
     && npm run build \
-    && rm -fr node_modules
+    # Finally, it removes the node_modules directory, presumably to reduce the size of the Docker image since the dependencies are already installed and the application is built.
+    && rm -fr node_modules 
 
 EXPOSE 3000
 
